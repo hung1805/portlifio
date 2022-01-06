@@ -90,7 +90,11 @@ const Header = () => {
               <FaSun className="sunIcon" />
               <FaMoon className="moonIcon" />
             </ThemeBtn>
-            <Button>Resume</Button>
+            <Button>
+              <a href="https://drive.google.com/file/d/1JYn0mpGaa4pTy3flX7DuqMPCFuHscvzq/view?usp=sharing">
+                Resume
+              </a>
+            </Button>
           </NavBtn>
         </Nav>
       )}

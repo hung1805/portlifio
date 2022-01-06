@@ -1,36 +1,55 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
 import Hero from "components/Hero";
-import Knowledge from "components/Knowledge";
 import Project from "components/Projects";
 import Contact from "Contact";
-import React, { useState, useEffect, useContext, createContext } from "react";
-import ScrollBtn from "ScrollBtn";
-import styled from "styled-components";
+import React, { useState, useEffect, createContext } from "react";
+import ScrollBtn from "components/ScrollBtn";
+import AboutMe from "components/AboutMe";
+import GlobalStyle from "GlobalStyled";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { ThemeProvider } from "styled-components";
+import Social from "components/Social";
 
+const ScrollContext = createContext();
 const App = () => {
-  const [myTheme, setMyTheme] = useState();
+  AOS.init({
+    duration: 1000,
+    throttleDelay: 200,
+    easing: "ease-in-out",
+  });
+  const [isScroll, setIsScroll] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // console.log("create theme in App with", myTheme);
-  }, [myTheme]);
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsScroll(true);
+      } else setIsScroll(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   return (
-    <StyledApp>
-      <Header />
-      <Hero />
-      <Knowledge />
-      <Project />
-      <Contact />
-      <ScrollBtn />
-      <Footer />
-    </StyledApp>
+    <ScrollContext.Provider value={{ isScroll, setIsScroll }}>
+      <ThemeProvider theme={{ theme, setTheme }}>
+        <GlobalStyle />
+        <Header />
+        <Hero isScroll={isScroll} />
+        <AboutMe />
+        <Project />
+        <Contact />
+        <Social />
+        <ScrollBtn isScroll={isScroll} />
+        <Footer />
+      </ThemeProvider>
+    </ScrollContext.Provider>
   );
 };
 
-const StyledApp = styled.div`
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-`;
-
+export { ScrollContext };
 export default App;

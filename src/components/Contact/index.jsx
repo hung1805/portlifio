@@ -10,7 +10,7 @@ const Contact = () => {
       <Container>
         <h2>Contact Me</h2>
         <p data-aos="zoom-out">
-          If you have any questions, you can get in touch by the ways below
+          If you have any questions, you can get in touch with me by the ways below
         </p>
         <ContactContainer>
           <ContactItem data-aos="fade-right">

@@ -2,7 +2,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import Hero from "components/Hero";
 import Project from "components/Projects";
-import Contact from "Contact";
+import Contact from "components/Contact";
 import React, { useState, useEffect, createContext } from "react";
 import ScrollBtn from "components/ScrollBtn";
 import AboutMe from "components/AboutMe";

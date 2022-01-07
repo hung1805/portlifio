@@ -26,10 +26,10 @@ const AboutMe = () => {
           <Profile data-aos="flip-right">
             <Title>Introduction</Title>
             <Description>
-              I am fourth-year student at Danang University of Science and Technology. My
-              major is Information and Technology. I'm a front-end developer. Beside
-              coding, I like to watch anime, watch soccer and play games. Keeping learning
-              and learning in order that I can be a professional developer.
+              I am senior at Danang University of Science and Technology. My major is
+              Information and Technology. I'm a front-end developer. Beside coding, I like
+              watching anime, soccer and playing games. Keeping learning and learning in
+              order that I can be a professional developer.
             </Description>
           </Profile>
           <Skill>
